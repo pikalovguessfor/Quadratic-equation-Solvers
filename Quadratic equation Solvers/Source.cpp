@@ -34,68 +34,96 @@ int takeSecondRootInDoubleRoot(int Discr, int a, int b) { // second root in doub
 }
 
 //
+//														Filestream Scripts
+
+void GetNumbersInsFile(int x, int y, int z) {
+
+	ofstream FileToWrite;
+	FileToWrite.open("numbers.txt");
+
+	if (FileToWrite.is_open()) {
+
+		FileToWrite << x;
+		FileToWrite << endl;
+		FileToWrite << y;
+		FileToWrite << endl;
+		FileToWrite << z;
+
+	}
+
+}
+
+//
 
 int main() {
 
-	int b = 0;
-	int a = 0;
-	int c = 0;
-	int Discr;
+	while (true) {
 
-	int FirstRoot = 0;
-	int SecondRoot = 0;
+		int b = 0;
+		int a = 0;
+		int c = 0;
+		int Discr;
 
-	bool NoRoots = false;
-	bool OneRoot = false;
-	bool TwoRoots = false;
+		int FirstRoot = 0;
+		int SecondRoot = 0;
 
-	cout << "Enter B\n";
-	cin >> b;
+		bool NoRoots = false;
+		bool OneRoot = false;
+		bool TwoRoots = false;
 
-	cout << "Enter A\n";
-	cin >> a;
+		cout << "Enter B\n";
+		cin >> b;
 
-	cout << "Enter C\n";
-	cin >> c;
+		cout << "Enter A\n";
+		cin >> a;
 
-	Discr = TakeDiscr(b, a, c);
-	cout << Discr;
-	cout << endl;
+		cout << "Enter C\n";
+		cin >> c;
 
-	if (Discr == 0) {
-		cout << "One root.\n";
+		Discr = TakeDiscr(b, a, c);
+		cout << Discr;
+		cout << endl;
 
-		OneRoot = true;
-	}
-	else if (Discr > 0) {
-		cout << "Two roots\n";
+		if (Discr == 0) {
+			cout << "One root.\n";
 
-		TwoRoots = true;
-	}
-	else if (Discr < 0) {
-		cout << "No roots.\n";
+			OneRoot = true;
+		}
+		else if (Discr > 0) {
+			cout << "Two roots\n";
 
-		NoRoots = true;
-	}
+			TwoRoots = true;
+		}
+		else if (Discr < 0) {
+			cout << "No roots.\n";
 
-	if (NoRoots) {
-		exit(0);
-	}
-	else if (OneRoot) {
+			NoRoots = true;
+		}
 
-		FirstRoot = TakeRootInOneRoot(b, a);
+		if (NoRoots) {
+			exit(0);
+		}
+		else if (OneRoot) {
 
-		cout << "Root = " << FirstRoot << endl;
+			FirstRoot = TakeRootInOneRoot(b, a);
 
-	}
-	else if (TwoRoots) {
+			cout << "Root = " << FirstRoot << endl;
 
-		FirstRoot = takeFirstRootInDoubleRoot(Discr, a, b);
-		SecondRoot = takeSecondRootInDoubleRoot(Discr, a, b);
+			
+		}
+		else if (TwoRoots) {
 
-		cout << "First root - " << FirstRoot << endl;
-		cout << "Second root - " << SecondRoot << endl;
+			FirstRoot = takeFirstRootInDoubleRoot(Discr, a, b);
+			SecondRoot = takeSecondRootInDoubleRoot(Discr, a, b);
 
+			cout << "First root - " << FirstRoot << endl;
+			cout << "Second root - " << SecondRoot << endl;
+
+		}
+
+		cout << "Numbers were entered the file - numbers.txt";
+
+		GetNumbersInsFile(Discr, FirstRoot, SecondRoot);
 	}
 
 }
