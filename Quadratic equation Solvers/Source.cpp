@@ -57,6 +57,10 @@ void GetNumbersInsFile(float x, float y, float z) {
 
 int main() {
 
+	const float bCon = 0.0;
+	const float aCon = 0.0;
+	const float cCon = 0.0;
+
 	while (true) {
 
 
@@ -102,7 +106,9 @@ int main() {
 		}
 
 		if (NoRoots) {
-			exit(0);
+			
+			continue;
+
 		}
 		else if (OneRoot) {
 
@@ -122,9 +128,19 @@ int main() {
 
 		}
 
-		cout << "Numbers were entered the file - numbers.txt";
+		
+
+		cout << endl<< "Numbers were entered the file - numbers.txt";
 
 		GetNumbersInsFile(Discr, FirstRoot, SecondRoot);
+
+
+
+		cout << endl << endl;
+
+		b = bCon;
+		a = aCon;
+		c = cCon;
 		
 	}
 
