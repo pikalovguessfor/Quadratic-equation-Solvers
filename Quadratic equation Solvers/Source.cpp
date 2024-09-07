@@ -4,31 +4,31 @@
 
 using namespace std;
 
-int TakeDiscr(int b, int a, int c) {					//Discriminant Formula
+float TakeDiscr(float b, float a, float c) {					//Discriminant Formula
 
-	int Discr = (b * b) - 4 * a * c;
+	float Discr = (b * b) - 4 * a * c;
 
 	return Discr;
 }
 
-int TakeRootInOneRoot(int b, int a) {					//Solo Root root formula
+short TakeRootInOneRoot(float b, float a) {					//Solo Root root formula
 
-	int RootX = -(b / (2 * a));
+	float RootX = -(b / (2 * a));
 
 	return RootX;
 }
 
 //
-int takeFirstRootInDoubleRoot(int Discr, int a, int b) { // first root in double root
+float takeFirstRootInDoubleRoot(float Discr, float a, float b) { // first root in double root
 
-	int FirstRoot = (-b - sqrt(Discr)) / (2 * a);
+	float FirstRoot = (-b - sqrt(Discr)) / (2 * a);
 
 	return FirstRoot;
 }
 
-int takeSecondRootInDoubleRoot(int Discr, int a, int b) { // second root in double root
+short takeSecondRootInDoubleRoot(float Discr, float a, float b) { // second root in double root
 
-	int SecondRoot = (-b + sqrt(Discr)) / (2 * a);
+	float SecondRoot = (-b + sqrt(Discr)) / (2 * a);
 
 	return SecondRoot;
 }
@@ -36,7 +36,7 @@ int takeSecondRootInDoubleRoot(int Discr, int a, int b) { // second root in doub
 //
 //														Filestream Scripts
 
-void GetNumbersInsFile(int x, int y, int z) {
+void GetNumbersInsFile(float x, float y, float z) {
 
 	ofstream FileToWrite;
 	FileToWrite.open("numbers.txt");
@@ -59,13 +59,14 @@ int main() {
 
 	while (true) {
 
-		int b = 0;
-		int a = 0;
-		int c = 0;
-		int Discr;
 
-		int FirstRoot = 0;
-		int SecondRoot = 0;
+		float b = 0;
+		float a = 0;
+		float c = 0;
+		float Discr;
+
+		float FirstRoot = 0;
+		float SecondRoot = 0;
 
 		bool NoRoots = false;
 		bool OneRoot = false;
@@ -124,6 +125,7 @@ int main() {
 		cout << "Numbers were entered the file - numbers.txt";
 
 		GetNumbersInsFile(Discr, FirstRoot, SecondRoot);
+		
 	}
 
 }
